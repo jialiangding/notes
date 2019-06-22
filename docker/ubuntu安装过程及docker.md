@@ -28,5 +28,7 @@ netmask 255.255.255.0
 gateway 192.168.1.1
 dns-nameserver 8.8.8.8
    ```
-  
+
+配置科学上网
+
 

@@ -9,3 +9,4 @@ WHERE a.score>b.score AND a.sno=b.sno; `
 ` select sc.sno,avg(score) from sc,student GROUP BY sc.sno  HAVING avg(score)>60
    `
 -- 3、查询所有同学的学号、姓名、选课数、总成绩；
+
