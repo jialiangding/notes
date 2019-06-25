@@ -76,3 +76,16 @@ having count(sc.cno) < (select count(cno) from course);
 
 
 -- 12、查询至少有一门课程 与 学号为1的同学所学课程 相同的同学的学号和姓名；
+`
+select distinct a.sno, a.sname
+from student a, sc b
+where a.sno <> 1 and a.sno=b.sno and
+b.cno in (select cno from sc where sno = 1);
+`
+
+-- 13把“sc”表中“刘老师”所教课的成绩都更改为此课程的平均成绩；
+
+
+
+-- 14、查询和2号同学学习的课程完全相同的其他同学学号和姓名；
+
