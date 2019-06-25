@@ -21,5 +21,8 @@ select  count(1) from teacher where teacher.tname LIKE '%李%'
 -- 5、查询没学过“叶平”老师课的同学的学号、姓名；
 
 `
-
+SELECT student.sno,student.sname FROM student
+WHERE sno NOT IN (SELECT DISTINCT(sc.sno) FROM sc,course,teacher
+WHERE sc.cno=course.cno AND teacher.tno=course.tno AND teacher.tname='叶平');
 `
+-- 6、查询同时学过课程1和课程2的同学的学号、姓名；
