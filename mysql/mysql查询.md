@@ -9,4 +9,17 @@ WHERE a.score>b.score AND a.sno=b.sno; `
 ` select sc.sno,avg(score) from sc,student GROUP BY sc.sno  HAVING avg(score)>60
    `
 -- 3、查询所有同学的学号、姓名、选课数、总成绩；
+`
+select student.sno,student.sname,count(sc.cno) ,  sum(sc.score) from sc,student where sc.sno=student.sno GROUP BY sc.sno
+`
 
+-- 4、查询姓“李”的老师的个数；
+`
+select  count(1) from teacher where teacher.tname LIKE '%李%'
+`
+
+-- 5、查询没学过“叶平”老师课的同学的学号、姓名；
+
+`
+
+`
