@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import json
+import os
 
 
 def get_html(web_url):
@@ -10,3 +11,20 @@ def get_html(web_url):
    Soup = BeautifulSoup(html, "lxml")
    data = Soup.find("ol").find_all("li")
    return data
+
+
+# #筛选出信息，保存进文本
+def get_info():
+       root_dir = os.path.dirname(os.path.abspath('.'))
+     
+       data_dir=root_dir+'/data/'
+       f = open(data_dir,'r') 
+   # pass
+
+
+
+
+
+if __name__ == "__main__":
+      data=get_html("https://movie.douban.com/top250")
+      get_info()
