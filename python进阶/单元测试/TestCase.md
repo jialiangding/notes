@@ -109,3 +109,29 @@ assertIsNone(self, obj, msg=None)
 --判断是否为None：obj is None
 assertIsNotNone(self, obj, msg=None)
 --判断是否不为None：obj is not None
+
+```
+def test_add(self):
+        self.assertEqual(self.obj.add(10,20),40,msg="测试失败")
+
+
+控制台
+======================================================================
+FAIL: test1_add (__main__.TestCount)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeremy/vscodeproject/notes/python进阶/单元测试/learn/ut_count.py", line 25, in test1_add
+    self.assertEqual(self.obj.add(10,20),40,msg="测试失败")
+AssertionError: 30 != 40 : 测试失败
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+```
+
+###跳过测试
+1. 对不需要测试的接口，在其测试用例上加上
+>@unittest.skip('Not Test')
+2. 根据条件跳过测试用例
+>skiplf(conditon,reason)
+>skipUnless(condition,reason)
+

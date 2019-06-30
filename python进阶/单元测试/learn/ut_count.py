@@ -17,14 +17,14 @@ class TestCount(unittest.TestCase):
         self.obj=None
     def runTest(self):
         self.assertEqual(self.obj.add(10,20),40,msg="测试失败")
-        
+
     def subTest(self):
         print("sub")
         print(self.obj.sub(6,7))    
-    def test1_add(self):
-        print("ADD")
-
-        print(self.obj.add(4,7)==30)
+    @unittest.skip('Not Test')
+    def test_add(self):
+        print("skip")
+        self.assertEqual(self.obj.add(10,20),30,msg="测试失败")
     def test1_sub(self):
         print("sub")
         print(self.obj.sub(6,7))    
