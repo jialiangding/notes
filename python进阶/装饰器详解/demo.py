@@ -23,4 +23,3 @@ def  foo3():
 
 if __name__ == "__main__":
 
-    foo3()
