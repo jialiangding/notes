@@ -21,5 +21,12 @@ def  foo3():
      print("3333")
 
 
+@use_logging2
+def  foo3(sss,aaa):
+     print("3333")
+     print(sss)
+     print(aaa)
+
+
 if __name__ == "__main__":
 
