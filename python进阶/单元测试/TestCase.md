@@ -135,3 +135,5 @@ Ran 3 tests in 0.004s
 >skiplf(conditon,reason)
 >skipUnless(condition,reason)
 
+
+### Mock模拟测试
