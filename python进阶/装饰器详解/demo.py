@@ -22,11 +22,11 @@ def  foo3():
 
 
 @use_logging2
-def  foo3(sss,aaa):
+def  foo4(sss,aaa):
      print("3333")
      print(sss)
      print(aaa)
 
 
 if __name__ == "__main__":
-
+     foo4("hello","world")
