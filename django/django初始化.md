@@ -223,3 +223,29 @@ return render(request,'profile.html',context={'username':'huangyong'})
   Applying auth.0010_alter_group_name_max_length... OK
   Applying auth.0011_update_proxy_permissions... OK
   Applying sessions.0001_initial... OK
+
+```
+class UserMessge(models.Model):
+    ###如果不指定主键，则在生成数据表的时候 会自动给一个主键
+    name = models.CharField(max_length=20,null=True, blank=True,  default="", verbose_name="用户名")
+    email=models.CharField(max_length=20,verbose_name="邮箱")
+    address=models.CharField(max_length=20,verbose_name="地址")
+    address=models.CharField(max_length=20,verbose_name="留言") 
+    class Meta:
+        verbose_name ="用户留言信息"
+
+```
+>自动生成数据表之后，django会自动添加id
+![](./res/默认生成数据库表.png)
+增加一个主键到models中
+```
+object_id=models.CharField(max_length=50,default="",primary_key=True,null=False,blank=False,verbose_name="主键")
+```
+![](./res/添加主键成功.png)
+
+
+![](./res/完整的数据.png)
+
+### Model的增删改
+在view中导入model
+>from .models import UserMessge
