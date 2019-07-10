@@ -97,8 +97,11 @@ having sum(cno) = (select sum(cno) from sc where sno = 2);
 
 `
 -- 15、删除学习“叶平”老师课的sc表记录；
-
-
+`
+DELETE from  sc_copy where cno in (
+select cno from course where tno=(select tno from teacher where tname="叶平"
+))
+`
 
 --16、向sc表中插入一些记录，这些记录要求符合以下条件：
 --将没有课程3成绩同学的该成绩补齐, 其成绩取所有学生的课程2的平均成绩；
