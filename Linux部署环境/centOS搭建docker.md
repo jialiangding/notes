@@ -45,6 +45,9 @@ DNS1=8.8.8.8
    5. 配置docker 加速器
     curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://d552c9b5.m.daocloud.i
 
+4.  安装docker-compose
+5. 安装lzrz
+   >yum install lrzsz 
    
 
    

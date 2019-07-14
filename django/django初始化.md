@@ -248,4 +248,34 @@ object_id=models.CharField(max_length=50,default="",primary_key=True,null=False,
 
 ### Model的增删改
 在view中导入model
->from .models import UserMessge
+```
+# Create your views here.
+import pymysql
+
+from .models import UserMessge
+#导入model  
+def getform(request):
+  return render(request,"form_test.html")
+```
+表单如下
+![](./res/form.png)
+点击提交
+![](./res/mistake1.png)
+解决办法
+加入csrf_token
+```
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="提交"/>
+
+    </label>
+    {% csrf_token %} 
+    <!--<input type='hidden' name='csrfmiddlewaretoken' value='SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa' />  -->
+</form>
+
+</body>
+</html>
+
+```
+1.提交完成后
+![](./res/submit.png)
