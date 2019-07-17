@@ -126,7 +126,9 @@ select cno from course where tno=(select tno from teacher where tname="叶平"
 
 
 --21、查询不同老师所教不同课程平均分, 从高到低显示
-
+`
+select teacher.tname,course.cname,avg(sc.score) as 平均分  from sc,teacher,course where course.cno=sc.cno and teacher.tno=course.tno GROUP BY course.cno ORDER BY  平均分 desc;
+`
 
 
 --22、查询如下课程成绩均在第3名到第6名之间的学生的成绩：
@@ -142,3 +144,28 @@ select cno from course where tno=(select tno from teacher where tname="叶平"
 
 -- 26、查询每门课程被选修的学生数；
 select sc.cno,count(sc.sno) from sc group by sc.cno
+
+
+------------------------------------------------------------------
+--27、查查询出只选修了一门课程的全部学生的学号和姓名；
+--思路：联结 + 分组 + HAVING与WHERE的区别
+--given answer
+`
+select sc.sno,count(sc.cno) as count from student, sc where sc.sno=student.sno group by student.sno HAVING count=1
+`
+-- 28、查询男生、女生人数；
+
+`
+select 
+(select count(1) from student where ssex = '男') 男生人数,
+(select count(1) from student where ssex = '女') 女生人数;
+`
+
+
+--29、查询姓“张”的学生名单；
+`
+select * from student where student.sname like "张%"
+`
+
+
+--30、查询同名同性学生名单，并统计同名人数；
