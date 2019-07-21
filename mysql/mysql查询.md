@@ -142,3 +142,6 @@ select cno from course where tno=(select tno from teacher where tname="叶平"
 
 -- 26、查询每门课程被选修的学生数；
 select sc.cno,count(sc.sno) from sc group by sc.cno
+
+
+-- 27、查查询出只选修了一门课程的全部学生的学号和姓名；
