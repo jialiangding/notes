@@ -146,6 +146,7 @@ select teacher.tname,course.cname,avg(sc.score) as 平均分  from sc,teacher,co
 select sc.cno,count(sc.sno) from sc group by sc.cno
 
 
+<<<<<<< HEAD
 ------------------------------------------------------------------
 --27、查查询出只选修了一门课程的全部学生的学号和姓名；
 --思路：联结 + 分组 + HAVING与WHERE的区别
@@ -169,3 +170,6 @@ select * from student where student.sname like "张%"
 
 
 --30、查询同名同性学生名单，并统计同名人数；
+=======
+-- 27、查查询出只选修了一门课程的全部学生的学号和姓名；
+>>>>>>> 8dd4d3a7ce4731a59aa836d1f1956c171236c281
