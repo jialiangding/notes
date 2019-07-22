@@ -48,3 +48,18 @@ pymysql.install_as_MySQLdb()
 
 if version < (1, 3, 3):
      raise ImproperlyConfigured("mysqlclient 1.3.3 or newer is required; you have %s" % Database.__version__) 
+
+错误三 AttributeError: 'str' object has no attribute 'decode'
+```
+    query = query.decode(errors='replace')
+AttributeError: 'str' object has no attribute 'decode'
+
+/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/db/backends/mysql/operations.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+decode  --> encode
+ if query is not None:
+            query = query.encode(errors='replace')
+        return query
+```
