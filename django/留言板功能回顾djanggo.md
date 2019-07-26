@@ -135,12 +135,17 @@ class UserMessge(models.Model):
 
 ### model的增删改
 ```
-apps/message/views.py
+from django.shortcuts import render
+
+# Create your views here.
+
 from .models import UserMessge
 
 from apps.message.models import UserMessge
+
+
 def getform(request):
-    #如何查询数据库当中的记录
+    # 如何查询数据库当中的记录
     # all_message=UserMessge.objects.all()  #将数据库中所有的数据返回回来  query
     # for message in all_message:
     #     print(message.name)
@@ -149,7 +154,6 @@ def getform(request):
     # all_message=UserMessge.objects.filter(name='a',address='vsssss')
     # for message in all_message:
     #     print(message.name)
-
 
     ## 插入一条数据
     # usermessage=UserMessge()
@@ -160,10 +164,62 @@ def getform(request):
     # usermessage.email="17223@qq.com"
     # usermessage.save()
 
-    #返回数据到表单上并显示
-    #步骤
-    #1. 配置表单回显的html上的 action的地址
+    # 通过表单提交数据 并存入数据库
+    # if request.method == "POST":
+    #     name = request.POST.get('name', "")
+    #     message = request.POST.get('message', "")
+    #     address = request.POST.get('address', "")
+    #     email = request.POST.get("email", "")
+    #
+    #     usermessage = UserMessge()
+    #     usermessage.name=name
+    #     usermessage.message =message
+    #     usermessage.object_id = "1212211"
+    #     usermessage.address = address
+    #     usermessage.email = email
+    #     usermessage.save()
 
 
-    return render(request,'form_test.html')
+    ###删除操作
+    #删除所有
+    # all_message = UserMessge.objects.filter(name='a', address='vsssss')
+    # all_message.delete()
+    # #单条删除
+    # for message in all_message:
+    #     message.delete()
+
+    #如何将后台的数据呈现到HTML中
+
+
+
+
+
+        return render(request, 'form_test.html')
+
+def getform2(request):
+
+    message=None
+    #将数据库中的第一条数据回显到页面上
+    all_message=UserMessge.objects.filter(name='a',address='vsssss')
+    if all_message:
+        message=all_message[0]
+
+    return render(request,'form_test2.html',{"mymessage":message})
+
+if __name__ == '__main__':
+    getform()
+
+```
+
+### django中模板的应用
+1. if else
+2. url的应用
+```
+    path('form1/',getform2,name="form")
+```
+
+tempz
+```
+<form action="{% url 'form' %}"    method="post" 
+class="smart-green">
 ```
