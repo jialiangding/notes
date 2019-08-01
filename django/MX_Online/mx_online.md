@@ -92,13 +92,50 @@ AUTH_USER_MODEL="users.UserProfile"
 ### 对app进行分层
 为什么需要分层---为了防止互相循环引用
 
+
+![](./res/app_model分层.png)
 ###继续构建model
+
 >startapp courses
 >一个课程对应多个章节 一对多
 >一个章节下有多个视频  一对多
 所以可以建立三张表 课程表 章节表   视频资源表
 课程需要下课件--->所以课程对应多个课件  一对多
-第四张 课程资源表
+第四张 课程资源表   一对多
+
+分别创建organization,operation
+![](./res/生成的数据表.png)
+
+将所有apps放到apps下管理
+此时会发生
+![](./res/移动后报错.png)
+
+此时需要将app作为项目的根路径
+
+
+
+###快速搭建后台管理系统
+后台管理系统 
+特点 权限管理、少前端样式、快速开发
+
+django自身有一个app admin
+  >  'django.contrib.admin',
+其本身也配置了路径
+>urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+
+访问localhost:8000/admin
+![](./res/admin-login.png)
+
+如何创建用户
+python3 manage.py createsuperuser
+
+
+### 安装x-admin
+安装方式一： 通过pip安装  pip install  xadmin
+
+
 
 
 
