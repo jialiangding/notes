@@ -135,7 +135,25 @@ python3 manage.py createsuperuser
 ### 安装x-admin
 安装方式一： 通过pip安装  pip install  xadmin
 
+安装完成后在setting中配置xadmin
+INSTALLED_APPS  添加,'xadmin','crispy_forms'
 
+此时重启项目会报错
+>xadmin错误NameError:name 'reload' is not defined
+imp.reload(sys)
+
+再次重启
+又报错
+>AttributeError: module 'sys' has no attribute 'setdefaultencoding'
+原因Python3字符串默认编码unicode, 所以sys.setdefaultencoding也不存在了
+所以直接去掉sys.setdefaultencoding
+再次重启又报错
+>ImportError: cannot import name 'smart_unicode' from 'django.utils.encoding' 
+
+此时此问题无法解决 因为Xadmin与python3兼容性做的太差
+卸载xadmin  pip3 uninstall xadmin
+下载新的版本
+>pip3 install https://github.com/sshwsfc/xadmin/tarball/master
 
 
 
