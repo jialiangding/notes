@@ -94,7 +94,7 @@ AUTH_USER_MODEL="users.UserProfile"
 
 
 ![](./res/app_model分层.png)
-###继续构建model
+### 继续构建model
 
 >startapp courses
 >一个课程对应多个章节 一对多
@@ -114,7 +114,7 @@ AUTH_USER_MODEL="users.UserProfile"
 
 
 
-###快速搭建后台管理系统
+### 快速搭建后台管理系统
 后台管理系统 
 特点 权限管理、少前端样式、快速开发
 
@@ -130,6 +130,15 @@ django自身有一个app admin
 
 如何创建用户
 python3 manage.py createsuperuser
+
+
+#### model注册到admin中
+将modle注册到admin中去
+![](./res/model注册到admin中.png)
+
+
+
+
 
 
 ### 安装x-admin
@@ -153,8 +162,41 @@ imp.reload(sys)
 此时此问题无法解决 因为Xadmin与python3兼容性做的太差
 卸载xadmin  pip3 uninstall xadmin
 下载新的版本
->pip3 install https://github.com/sshwsfc/xadmin/tarball/master
+>https://github.com/sshwsfc/xadmin/tree/django2
 
+在项目中，新建extra_apps文件夹，用来存放第三方库，并将xadmin拷贝进去，如下： 
+注册extra_apps文件夹到source
+使用pycharm的话，在文件夹右键，make sources root
+在项目settings.py文件夹中，通过代码形式进行注册，如下 
+ 
+将xadmin添加到settings.py应用列表
+INSTALLED_APPS = [ 'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', # 需要添加的两个app 'xadmin', 'crispy_forms', ]
+ 
+sys.path.insert(0,os.path.join(BASE_DIR,"apps"))
+sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
+>另外将makemigrations中生成的下外键指向的app.coures.xxx 中的apps删除掉
+>modles中导入from apps.course等类似的  apps也要删除
+使用migrate同步数据表
+python manager.py makemigrations 
+python manager.py migrate
+ 
+运行xadmin
+在urls.py中进行xadmin的配置：
+import xadmin
+urlpatterns = [
+path(r'xadmin/', xadmin.site.urls),
+]
+#### 将modle注册到xadmin
+xadmin和admin用法相似
+这里需要在app下新建一个文件 adminx.py
+![](./res/adminx.png)
+
+![](./res/注册到xadmin.png)
+ps这里要改为site
+注册后
+![](./res/注册后.png)
+
+####  增加列名和查询条件
 
 
 

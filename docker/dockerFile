@@ -17,6 +17,12 @@ run yum install python36u-pip -y
 #创建软链接
 run  ln -s /usr/bin/python3.6 /usr/bin/python3
 run ln -s /usr/bin/pip3.6 /usr/bin/pip3
+
+#修改镜像源
+
+run mkdir ~/.pip
 run  mkdir /tmp/
 COPY ./requirements.txt /tmp/
+COPY ./pip.conf   ~/.pip
 RUN pip3 install - r   /tmp/requirements.txt
+
