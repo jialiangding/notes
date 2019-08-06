@@ -1,7 +1,7 @@
 FROM centos
 MAINTAINER jeremyLucky
 run cp  /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak \
-yum -y install wget
+yum  -y  install  wget
 run  wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 
 
 run  wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-7.repo 
@@ -9,20 +9,26 @@ run yum clean all
 run  yum makecache
 
 #安装python3.6
-run yum install epel-release -y 
-run yum install https://centos7.iuscommunity.org/ius-release.rpm -y
-run yum install python36u -y
+run yum install -y python36
+#run yum install https://centos7.iuscommunity.org/ius-release.rpm -y
+#run yum install python36u -y
 #安装pip3
-run yum install python36u-pip -y
+#run yum install python36u-pip -y
+
+run yum install -y python36-setuptools
+run  easy_install pip
 #创建软链接
 run  ln -s /usr/bin/python3.6 /usr/bin/python3
-run ln -s /usr/bin/pip3.6 /usr/bin/pip3
+run ln -s /usr/local/bin/pip3  /usr/bin/pip3
 
 #修改镜像源
 
 run mkdir ~/.pip
 run  mkdir /tmp/
 COPY ./requirements.txt /tmp/
+# vim ~/.pip/pip.conf
+# [global]
+# index-url = https://pypi.douban.com/simple/
 COPY ./pip.conf   ~/.pip
 RUN pip3 install - r   /tmp/requirements.txt
 
