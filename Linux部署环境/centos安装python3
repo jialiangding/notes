@@ -1,0 +1,28 @@
+适用于Centos6/7
+
+1、配置好epel源和ius源
+
+#安装EPEL依赖
+sudo yum install epel-release
+ 
+#安装IUS软件源
+sudo yum install https://centos7.iuscommunity.org/ius-release.rpm
+2、安装Python3.6
+
+yum install python36u -y
+
+# 创建软链接
+ln -s /usr/bin/python3.6 /bin/python3
+
+3、安装pip3
+
+yum install python36u-pip -y
+
+# 创建软链接
+ln -s /usr/bin/pip3.6 /bin/pip3
+
+# 升级pip
+pip3 install --upgrade pip
+4、安装virtualenv
+
+pip3 install virtualenv
