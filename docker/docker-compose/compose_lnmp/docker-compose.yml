@@ -38,6 +38,13 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: user
       MYSQL_PASSWORD: user123
+  # portainer:
+  #   hhostname: portainer
+  #   image: portainer/portainer 
+  #   ports:
+  #     - 9000:9000
+  #   networks:
+  #     - lnmp
 
 networks:
   lnmp: 
