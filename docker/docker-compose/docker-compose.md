@@ -3,3 +3,11 @@
 >sudo chmod +x /usr/local/bin/docker-compose
 
 docker-compose up   将容器启动起来
+
+
+
+
+
+
+
+
