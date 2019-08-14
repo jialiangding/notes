@@ -36,6 +36,15 @@ services:
   #     - 9000:9000
   #   networks:
   #     - lnmp
+  web:
+  build: .
+  command: python ./mysite/manage.py runserver 0.0.0.0:8000
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
+  links:
+    - mysql
 
 networks:
   lmp: 
