@@ -1,0 +1,41 @@
+version: '3'
+services:
+  python3:
+    hostname: python3
+    build:
+      context: ./python3
+      dockerfile: Dockerfile
+    
+    networks:
+      - lnmp
+    volumes:
+      - ./wwwroot:/usr/local/nginx/html
+
+  
+ 
+  mysql:
+    hostname: mysql
+    image: mysql:5.6
+    ports:
+      - 3306:3306
+    networks:
+      - lmp
+    volumes:
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/data:/var/lib/mysql
+    command: --character-set-server=utf8
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user123
+  # portainer:
+  #   hhostname: portainer
+  #   image: portainer/portainer 
+  #   ports:
+  #     - 9000:9000
+  #   networks:
+  #     - lnmp
+
+networks:
+  lmp: 
