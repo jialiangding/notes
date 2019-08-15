@@ -196,13 +196,37 @@ ps这里要改为site
 注册后
 ![](./res/注册后.png)
 
-####  增加列名和查询条件
+#### 增加列名和查询条件
 
 
 
 
+#### 全局配置
+user/adminx.py
+配置主题、及页面的基本信息
+```
 
 
+class BaseSetting(object):
+    ###2个重要的参数
+    enable_themes=True  ##开放主题功能，默认关闭
+    use_bootswatch=True
+###配置完成之后需要注册 ，这个的注册方式和我们以往的adminz注册方式不一样
+###  需要和一个view绑定起来
+
+class GlobalSettings(object):
+    # 修改title
+    site_title = 'NBA后台管理界面'
+    # 修改footer
+    site_footer = '科比的公司'
+    # 收起菜单
+    menu_style = 'accordion'
+
+xadmin.site.register(views.BaseAdminView,BaseSetting)  #注册完成
+xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordAdmin)
+
+
+```
 
 
 
