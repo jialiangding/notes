@@ -1,10 +1,13 @@
 from selenium import webdriver
 
-chrome_driver="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+#chrome_driver="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+#driver = webdriver.Chrome(options=chrome_options,executable_path=chrome_driver)
+
+# chrome_options.add_argument('--disable-gpu')
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
-# chrome_options.add_argument('--disable-gpu')
-driver = webdriver.Chrome(options=chrome_options,executable_path=chrome_driver)
+driver = webdriver.Chrome(options=chrome_options)
+
 driver.get("https://www.baidu.com")
 print(driver.current_url)
 
