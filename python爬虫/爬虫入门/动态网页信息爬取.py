@@ -35,3 +35,5 @@ print(driver.current_url)
 # for elem in driver.find_element_by_xpath("//*[contains(@class,'result')]/h3/a")
 #   print(elem.text)
 driver.quit()
+
+
