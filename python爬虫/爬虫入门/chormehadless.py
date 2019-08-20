@@ -10,4 +10,8 @@ print(driver.current_url)
 
 driver.find_element_by_id("kw").send_keys("iphone")
 driver.find_element_by_id("su").click()
-driver.close()
+source = driver.page_source #
+
+print(source)
+
+driver.quit()
