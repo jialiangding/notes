@@ -26,6 +26,11 @@
 
 # 因为 nums[0] + nums[1] = 2 + 7 = 9
 # 所以返回 [0, 1]
+
+
+#  * 把数值作为 key，它的下标作为 value
+#  * 遍历数组，判断 map 是否含有这个目标值-当前数值，
+#  * 有直接返回，没有的话放到map里面
 def sum(nums,target):
      list = []   
      for i in nums:
@@ -55,16 +60,16 @@ print(sum([1,2,3,4],4))
 # 输出: 1
 # 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
 
-def lengthOfLongestSubstring(ss):
-   n=ss[0]
-   b=True
-   for i in ss:
-       if i==n:
-           continue
-       b=False
-   if  b==True:
-       return 1
-   for i in ss:
+# def lengthOfLongestSubstring(ss):
+#    n=ss[0]
+#    b=True
+#    for i in ss:
+#        if i==n:
+#            continue
+#        b=False
+#    if  b==True:
+#        return 1
+#    for i in ss:
        
        
        
