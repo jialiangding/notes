@@ -8,11 +8,30 @@ import re
 import io
 import sys
 
-chrome_driver="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-gpu')
-driver = webdriver.Chrome(options=chrome_options,executable_path=chrome_driver)
+
 start_url="https://www.12306.cn/index/script/core/common/station_name_v10036.js"
-driver.get(start_url)
-print(driver.page_source)
+re=requests.get(start_url)
+data=re.text
+list="var station_names ='"  #多余的字符，需要截取
+data=data[20:-2]
+
+#print(data)
+
+
+print("-------------------------------------------------------")
+#根据@分割
+data= data.split("@")
+for i in data:
+   print(i)
+
+
+
+
+
+
+
+
+
+
+
+
