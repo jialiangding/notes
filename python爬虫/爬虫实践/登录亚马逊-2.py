@@ -24,5 +24,9 @@ print(driver.current_url)
 print(driver.find_element_by_class_name("nav-line-1").text)
 
 ###无界面浏览器下------elenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":".nav-line-1"}
- ## (Session info: headless chrome=76.0.3809.100)
- #界面浏览器成功运行
+## (Session info: headless chrome=76.0.3809.100)
+#界面浏览器成功运行
+
+
+
+
