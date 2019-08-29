@@ -49,5 +49,5 @@ city={"AAT":"阿勒泰","ACX":"兴义","AEB":"百色","AKU":"阿克苏","AOG":"�
 		,"YNT":"烟台","YNZ":"盐城","YTY":"扬州","YUS":"玉树","YZY":"张掖","ZAT":"昭通","ZHA":"湛江","ZHY":"中卫","ZQZ":"张家口","ZUH":"珠海","ZYI":"遵义(新舟)"}
 
 x=driver.find_element_by_class_name("//*[@id='base_bd']/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div/div[1]")
-print(x)
+print()
 
