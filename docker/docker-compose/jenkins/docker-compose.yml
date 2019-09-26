@@ -1,0 +1,18 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    hostname: jenkins
+    #build:
+     # context: ./jenkins
+      #dockerfile: Dockerfile
+    image: jenkins:latest
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - ${jenkins_home}:/var/jenkins_home
+      - ${maven_home}:/usr/local/maven
+      - ${java_home}:/usr/local/jdk
+     
+    
