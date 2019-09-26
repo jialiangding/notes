@@ -5,10 +5,20 @@
 (SELECT sno,score FROM sc WHERE cno=2) AS b
 WHERE a.score>b.score AND a.sno=b.sno; `
 
+
+
+
+`
+select * from student RIGHT JOIN 
+(select a.sno,score1,score2 from (select sc.sno,sc.score as score1  from sc where sc.cno=1) a ,(select sc.sno,sc.score as score2  from sc where sc.cno=2) b where  a.sno=b.sno and  
+a.score1>b.score2) c on c.sno=student.sno
+`
+
 --  2、查询平均成绩大于60分的同学的学号和平均成绩；
 ` select sc.sno,avg(score) from sc,student GROUP BY sc.sno  HAVING avg(score)>60
    `
 -- 3、查询所有同学的学号、姓名、选课数、总成绩；
+
 `
 select student.sno,student.sname,count(sc.cno) ,  sum(sc.score) from sc,student where sc.sno=student.sno GROUP BY sc.sno
 `
@@ -141,7 +151,6 @@ select teacher.tname,course.cname,avg(sc.score) as 平均分  from sc,teacher,co
 -- 24、查询学生平均分及其名次；
 
 -- 25、查询各科成绩前三名的记录:(不考虑成绩并列情况)；
-
 -- 26、查询每门课程被选修的学生数；
 select sc.cno,count(sc.sno) from sc group by sc.cno
 
@@ -165,9 +174,6 @@ select
 
 --29、查询姓“张”的学生名单；
 `
-select * from student where student.sname like "张%"
-`
-
 
 --30、查询同名同性学生名单，并统计同名人数；
 =======
