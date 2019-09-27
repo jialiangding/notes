@@ -106,12 +106,15 @@ AUTH_USER_MODEL="users.UserProfile"
 分别创建organization,operation
 ![](./res/生成的数据表.png)
 
-将所有apps放到apps下管理
+将所有apps放到apps下管理,注意拖动时不要选择搜索相关引用，拖动完成后
 此时会发生
 ![](./res/移动后报错.png)
+![](./res/错误一.png)
 
 此时需要将app作为项目的根路径
-
+在IDEA中将apps设置为根路径
+另外这样做仅仅是不够的，还需要在setting文件中设置，将apps设置为根路径，否则命令行启动仍然报错
+>sys.path.insert(0,os.path.join(BASE_DIR,"apps"))
 
 
 ### 快速搭建后台管理系统
