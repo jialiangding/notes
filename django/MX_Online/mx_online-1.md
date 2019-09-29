@@ -1,14 +1,14 @@
-### app设计
+# 一、app设计
 user - 用户管理
 course -课程管理
 organizaton - 机构和教师管理
 operation - 用户操作管理
-### 搭建环境
+# 二、搭建环境
 >mkvirtualenv mxonline
 >pip3 install django==2.2.0
 
 
-### 配置mysql连接
+# 三、配置mysql连接
 ```
 DATABASES = {
     'default': {
@@ -26,7 +26,7 @@ DATABASES = {
 >migrate
 
 
-### 设计user-app 的model
+# 四、设计user-app 的model
 首先新建app 
 >startapp users
 编写modle
@@ -59,7 +59,7 @@ class UserProfile(AbstractUser):
         verbose_name_plural=verbose_name
    ```
 
-### 注册APP
+# 五、注册APP
 setting文件中配置
 ```
 INSTALLED_APPS = [
@@ -89,12 +89,12 @@ AUTH_USER_MODEL="users.UserProfile"
 重新执行 migrate
 重合服务成功
 
-### 对app进行分层
+# 五、对app进行分层
 为什么需要分层---为了防止互相循环引用
 
 
 ![](./res/app_model分层.png)
-### 继续构建model
+# 六、继续构建model
 
 >startapp courses
 >一个课程对应多个章节 一对多
@@ -116,8 +116,7 @@ AUTH_USER_MODEL="users.UserProfile"
 另外这样做仅仅是不够的，还需要在setting文件中设置，将apps设置为根路径，否则命令行启动仍然报错
 >sys.path.insert(0,os.path.join(BASE_DIR,"apps"))
 
-
-### 快速搭建后台管理系统
+# 七、快速搭建后台管理系统
 后台管理系统 
 特点 权限管理、少前端样式、快速开发
 
@@ -134,17 +133,24 @@ django自身有一个app admin
 如何创建用户
 python3 manage.py createsuperuser
 
+设置中文，时区
+`
+LANGUAGE_CODE = 'zh-hans'
 
-#### model注册到admin中
+TIME_ZONE = 'Asia/Shanghai'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = False
+`
+## model注册到admin中
 将modle注册到admin中去
 ![](./res/model注册到admin中.png)
 
 
-
-
-
-
-### 安装x-admin
+# 八、安装x-admin
 安装方式一： 通过pip安装  pip install  xadmin
 
 安装完成后在setting中配置xadmin
@@ -189,10 +195,17 @@ import xadmin
 urlpatterns = [
 path(r'xadmin/', xadmin.site.urls),
 ]
+此时重启项目访问localhonst:8000
+![](./res/访问xadmin报错.png)
+解决办法
+重新执行python3 manage.py makemigrations 
+python3 manage.py migrate
+
+
 #### 将modle注册到xadmin
 xadmin和admin用法相似
 这里需要在app下新建一个文件 adminx.py
-![](./res/adminx.png)
+![](./res/adminx.png) 
 
 ![](./res/注册到xadmin.png)
 ps这里要改为site
@@ -200,6 +213,21 @@ ps这里要改为site
 ![](./res/注册后.png)
 
 #### 增加列名和查询条件
+邮箱验证码新增展示列名：
+`
+
+from .models import EmailVerifyRecord
+
+import  xadmin
+class EmailVerifyRecordXadmin(object):
+
+    list_display=['code','email','send_type','send_time']
+    search_fields=['code','email','send_type']
+    list_filter=['code','email','send_type']
+xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordXadmin)
+`
+
+![](./res/xadmin特性.png)
 
 
 
