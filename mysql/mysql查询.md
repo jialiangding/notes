@@ -5,9 +5,6 @@
 (SELECT sno,score FROM sc WHERE cno=2) AS b
 WHERE a.score>b.score AND a.sno=b.sno; `
 
-
-
-
 `
 select * from student RIGHT JOIN 
 (select a.sno,score1,score2 from (select sc.sno,sc.score as score1  from sc where sc.cno=1) a ,(select sc.sno,sc.score as score2  from sc where sc.cno=2) b where  a.sno=b.sno and  
