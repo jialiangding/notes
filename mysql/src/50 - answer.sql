@@ -7,6 +7,8 @@ where sc.cno = course.cno
 group by course.cno, cname
 having count(sc.cno) = (select count(1) from student);
 
+
+SELECT  a.sno,a.sname,COUNT(b.cno) FROM student  a LEFT JOIN  sc b on a.sno=b.sno GROUP by a.sno   HAVING  COUNT(b.cno)>=5
 --my answer
 SELECT c.cno, c.cname
 FROM sc, course c
