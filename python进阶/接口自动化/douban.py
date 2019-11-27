@@ -19,20 +19,21 @@ def start_requests(url):
         # 3.获取需要的电影信息
         for detail in details:
                 # 电影名称
-                movieId = detail.find('i',class_='board-index').get_text()
-                movieName=detail.find('img',class_='board-img').get('alt')
-                moviePic=detail.find('img',class_='board-img').get('data-src')
-                movieStar1=detail.find('i',class_='integer').get_text()
-                movieStar2=detail.find('i',class_='fraction').get_text()
-                movieStar=movieStar1+movieStar2
-                print(movieStar)
-        next_page=
+             movieId = detail.find('i',class_='board-index').get_text()
+             movieName=detail.find('img',class_='board-img').get('alt')
+             moviePic=detail.find('img',class_='board-img').get('data-src')
+             movieStar1=detail.find('i',class_='integer').get_text()
+             movieStar2=detail.find('i',class_='fraction').get_text()
+             movieStar=movieStar1+movieStar2
+             #print(movieStar)
 
-def start_requests2(self):
-    for url in self.start_urls:
-        #  yield scrapy.Request(next_page_url, callback=self.parse)
+def main():
+        nextUrlObj = soup.find('ul',class_='list-pager')
+        print(nextUrlObj)
+
+
 
 
 if __name__ == '__main__':
-   start_requests("https://maoyan.com/board/4?offset=0")
+   #start_requests("https://maoyan.com/board/4?offset=0")
     
