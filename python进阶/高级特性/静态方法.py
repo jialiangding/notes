@@ -18,3 +18,4 @@ class cal:
 c1 = cal(10,11)
 cal.cal_test(1,2,3)     #>>> 1 2 3
 c1.cal_test(1,2,3)      #>>> 1 2 3
+cls
