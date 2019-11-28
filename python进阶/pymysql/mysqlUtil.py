@@ -13,5 +13,7 @@ def connect(cls):
     )
     return conn
 if __name__ == '__main__':
-    
-   print(connect(ReadConfig)) 
+   conn=connect(ReadConfig)
+   cursor = conn.cursor() 
+   sql = "select * from user"
+   print(cursor.execute(sql))
