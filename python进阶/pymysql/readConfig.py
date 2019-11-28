@@ -28,4 +28,4 @@ class ReadConfig(object):
         return  cf.get("DATABASE", configkey)  # 获取[Mysql-Database]中host对应的值
 
 if __name__ == "__main__":
-    print(getConfig("host"))
+    print(ReadConfig.getConfig("host"))

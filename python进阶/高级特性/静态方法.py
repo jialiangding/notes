@@ -15,7 +15,6 @@ class cal:
     @staticmethod       #静态方法 类或实例均可调用
     def cal_test(a,b,c): #改静态方法函数里不传入self 或 cls
         print(a,b,c)
-c1 = cal(10,11)
-cal.cal_test(1,2,3)     #>>> 1 2 3
-c1.cal_test(1,2,3)      #>>> 1 2 3
-cls
+# c1 = cal(10,11)
+# cal.cal_test(1,2,3)     #>>> 1 2 3
+# c1.cal_test(1,2,3)      #>>> 1 2 3

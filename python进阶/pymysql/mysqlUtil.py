@@ -1,19 +1,17 @@
 import pymysql
 
+from readConfig import ReadConfig
 
 
 
 
-
-def connect(config):
-
-
+def connect(cls):
     conn =pymysql.connect(
-    host=config("host"),
-    user=config("host"),password=config("host"),
-    database=config("host"),charset=("utf8")
+    host=cls.getConfig("host"),
+    user=cls.getConfig("user"),password=cls.getConfig("passwd"),
+    database=cls.getConfig("database"),charset=("utf8")
     )
     return conn
 if __name__ == '__main__':
     
-    connect(getConfig)
+   print(connect(ReadConfig)) 
