@@ -1,25 +1,56 @@
 /*间距小一点*/
+
+
 /*!important 级别提高*/
+
 .m-padded-tb-mini {
-    padding-top: 0.3em  !important;
+    padding-top: 0.3em !important;
     padding-bottom: 0.3em !important;
-
-
 }
 
-.m-padded-tb-massive{
-
-    padding-top: 100em  !important;
+.m-padded-tb-massive {
+    padding-top: 100em !important;
     padding-bottom: 100em !important;
-
 }
-.main{
-    padding-bottom:100px;background-color: #ffff00;
+
+.main {
+    padding-bottom: 100px;
+    background-color: #ffff00;
 }
-.footer-button{
-    
 
-    position:absolute;bottom:0;width:100%;height:100px;background-color: #ffc0cb;
+.footer-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #ffc0cb;
+}
 
+html {
+    height: 100%;
+}
 
+.mybody {
+    min-height: 100%;
+    padding: 0;
+    position: relative;
+}
+
+.myheader {
+    height: 100px;
+    background-color: aquamarine;
+}
+
+.myarticle {
+    height: 100px;
+    background-color: blueviolet;
+}
+
+.myfooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: 100px;
+    background-color: blanchedalmond;
 }
